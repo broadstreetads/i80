@@ -1,0 +1,28 @@
+{
+  "name": "i80",
+  "version": "1.0.0",
+  "description": "A microframework of sorts",
+  "main": "index.js",
+  "config": {
+    "port": "9091",
+    "license": "SXbGjHvOLvtD"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/broadstreetads/i80.git"
+  },
+  "keywords": [
+    "web",
+    "framework"
+  ],
+  "author": "Kenny Katzgrau",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/broadstreetads/i80/issues"
+  },
+  "homepage": "https://github.com/broadstreetads/i80#readme",
+  "dependencies": {
+    "memory-cache": "0.1.4",
+    "request": "2.69.0"
+  }
+}
