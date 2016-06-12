@@ -9,8 +9,8 @@ module.exports = (function() {
     public.start = function (options) {
 
         var server = http.createServer(function (req, res) {
-            res = prepRes(req, res, options.handlers);
-            req = prepReq(req, res); 
+            res = prepRes(req, res);
+            req = prepReq(req, res, options.handlers); 
                 
             var response = null, code = 200, complete = function(response) {
                 res.end(JSON.stringify(response));      
