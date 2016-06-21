@@ -23,5 +23,5 @@ i80.start({
 GET http://hostname/foo
 
 ```json
-{message: 'hello world'}
+{"message": "hello world"}
 ```
