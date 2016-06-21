@@ -15,7 +15,7 @@ var handlers = {
 }
 
 i80.start({
-  port: process.env.npm_package_config_port,
+  port: 80,
   handlers: handlers
 });
 ```
