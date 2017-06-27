@@ -1,6 +1,6 @@
 {
   "name": "i80",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A microframework of sorts",
   "main": "index.js",
   "config": {
@@ -22,7 +22,7 @@
   },
   "homepage": "https://github.com/broadstreetads/i80#readme",
   "dependencies": {
-    "memory-cache": "0.1.4",
+    "memory-cache": "0.2.0",
     "request": "2.69.0"
   }
 }
