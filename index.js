@@ -9,22 +9,30 @@ module.exports = (function() {
     public.start = function (options) {
 
         var server = http.createServer(function (req, res) {
-            res = prepRes(req, res);
-            req = prepReq(req, res, options.handlers); 
-                
-            var response = null, code = 200, complete = function(response) {
-                res.end(JSON.stringify(response));      
-            };
-            
-            // executeResponse only exists if we can handle the request
-            // and we have everything we need to do so. It comes from
-            // prepReq
-            if (req.executeResponse) {
-                req.executeResponse(res, complete);
-            } else {
-                code = 404;
-                response = {status: 404, description: 'maybe its because im irish'}
-                complete(response);
+            try {
+                res = prepRes(req, res);
+                req = prepReq(req, res, options.handlers);
+
+                var response = null, code = 200, complete = function(response) {
+                    res.end(JSON.stringify(response));
+                };
+
+                // executeResponse only exists if we can handle the request
+                // and we have everything we need to do so. It comes from
+                // prepReq
+                if (req.executeResponse) {
+                    req.executeResponse(res, complete);
+                } else {
+                    code = 404;
+                    response = {status: 404, description: 'maybe its because im irish'}
+                    complete(response);
+                }
+            } catch (e) {
+                console.log('Request error:', e);
+                try {
+                    res.writeHead(500, {'Content-Type': 'application/json'});
+                    res.end(JSON.stringify({status: 500, error: 'Internal server error'}));
+                } catch (e2) {}
             }
         });
 
